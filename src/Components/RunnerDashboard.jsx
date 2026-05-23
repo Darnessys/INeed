@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from 'react';
-// استدعاء ملف التنسيق الملوكي الجديد
+import React, { useState } from 'react';
 import './RunnerDashboard.css'; 
-import { watchForNewOrders, acceptOrder } from '../Services/OrderService';
 
 const RunnerDashboard = ({ runnerProfile }) => {
-  const [pendingOrders, setPendingOrders] = useState([]);
+  // حطينا طلبات وهمية جاهزة عشان تتفرج على التصميم الملوكي من غير ما نكلم السيرفر الخربان
+  const [pendingOrders, setPendingOrders] = useState([
+    { id: 1, itemDescription: "علبة قطايف بالمكسرات وفانوس رمضان الفخم", deliveryFee: 50 },
+    { id: 2, itemDescription: "طقم كيبورد وماوس جيمنج من كوكب زحل", deliveryFee: 75 },
+    { id: 3, itemDescription: "كيلو كباب وكفتة ملوكي لزوم الأنتخة", deliveryFee: 40 }
+  ]);
   const [isAccepting, setIsAccepting] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = watchForNewOrders((orders) => {
-      setPendingOrders(orders); 
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const handleAccept = async (orderId) => {
+  const handleAccept = (orderId) => {
     setIsAccepting(true);
-    try {
-      await acceptOrder(orderId, runnerProfile.id);
+    setTimeout(() => {
       alert("تم قبول الطلب بنجاح! بالتوفيق يا بطل.");
-    } catch (e) {
-      alert("حدث خطأ أثناء قبول الطلب.");
-    } finally {
+      setPendingOrders(pendingOrders.filter(order => order.id !== orderId));
       setIsAccepting(false);
-    }
+    }, 1000); // بيحاكي القبول في ثانية واحدة
   };
 
   return (
