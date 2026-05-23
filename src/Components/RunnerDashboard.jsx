@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// جرب المسار ده بالظبط
+// استدعاء ملف التنسيق الملوكي الجديد
+import './RunnerDashboard.css'; 
 import { watchForNewOrders, acceptOrder } from '../Services/OrderService';
 
 const RunnerDashboard = ({ runnerProfile }) => {
@@ -7,12 +8,9 @@ const RunnerDashboard = ({ runnerProfile }) => {
   const [isAccepting, setIsAccepting] = useState(false);
 
   useEffect(() => {
-    // 1. المندوب بيبدأ يراقب الرف فور فتح الشاشة
     const unsubscribe = watchForNewOrders((orders) => {
-      setPendingOrders(orders); // كل ما يحصل تغيير، الموظف بيبعت القائمة المحدثة
+      setPendingOrders(orders); 
     });
-
-    // 2. لما المندوب يقفل الشاشة، الموظف يبطل مراقبة عشان نوفر موارد الجهاز
     return () => unsubscribe();
   }, []);
 
@@ -32,17 +30,21 @@ const RunnerDashboard = ({ runnerProfile }) => {
     <div className="runner-dashboard">
       <h2>طلبات في انتظارك:</h2>
       {pendingOrders.length === 0 ? (
-        <p>لا توجد طلبات جديدة حالياً، استرح قليلاً!</p>
+        <p className="no-orders-msg">لا توجد طلبات جديدة حالياً، استرح قليلاً! ☕</p>
       ) : (
         pendingOrders.map((order) => (
-          <div key={order.id} className="order-card" style={{border: '1px solid #ccc', margin: '10px', padding: '10px'}}>
+          <div key={order.id} className="order-card">
             <p><strong>الطلب:</strong> {order.itemDescription}</p>
-            <p><strong>قيمة التوصيل:</strong> {order.deliveryFee} جنيه</p>
+            <p>
+              <strong>قيمة التوصيل:</strong> 
+              <span className="delivery-fee-badge">{order.deliveryFee} جنيه</span>
+            </p>
             <button 
+              className="accept-btn"
               disabled={isAccepting} 
               onClick={() => handleAccept(order.id)}
             >
-              {isAccepting ? "جاري القبول..." : "قبول الطلب"}
+              {isAccepting ? "جاري القبول..." : "قبول الطلب 🚀"}
             </button>
           </div>
         ))
