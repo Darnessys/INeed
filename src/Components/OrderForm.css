@@ -1,0 +1,238 @@
+/* ─── الهوية البصرية الموحدة: Imperial Purple Identity ─── */
+
+body {
+    /* خلفية رمادية فاتحة هادئة للكمبيوتر عشان تبرز شاشة الموبايل البنفسجية في النص */
+    background: #eef2f7; 
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* الكارد الرئيسي: حولناه لشاشة موبايل حقيقية بنظام الـ iPhone */
+.order-container {
+    width: 100%;
+    max-width: 375px; /* العرض القياسي لأغلب الموبايلات */
+    height: 667px;    /* الارتفاع القياسي القياسي لشاشة الموبايل */
+    
+    /* التدرج البنفسجي الإمبراطوري الفخم - فتحناه سِنة عشان يبان على الموبايل */
+    background: linear-gradient(135deg, #1f1a3a 0%, #0d0b18 100%);
+    border-radius: 40px; /* انحناء زوايا شبه شاشات الموبايل الحديثة */
+    padding: 2rem 1.5rem;
+    
+    /* جعل العناصر تتوزع عمودياً بشكل مظبوط جوه شاشة الموبايل */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    box-sizing: border-box;
+    direction: rtl;
+    
+    /* إطار دبل فخم */
+    border: 4px solid #1c1635;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 10px #ffffff; /* بيعمل إطار أبيض حوالين الموبايل على الكمبيوتر */
+    
+    overflow-y: auto; /* لو الموبايل شاشته صغيرة يعمل سكرول ناعم جوه نفسه */
+}
+
+/* تعديل حجم الخطوط عشان تتناسب مع شاشة الموبايل */
+h2 {
+    color: #f5f4fa;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+}
+
+/* السويتش مدمج في الهوية بالكامل */
+.tab-switcher {
+    display: flex;
+    background: #0b0817;
+    padding: 5px;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(156, 136, 255, 0.1);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #686487;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    /* التبويب النشط ياخد درجة بنفسجي صريحة مريحة */
+    background: #1e193c;
+    color: #9c88ff;
+    border: 1px solid rgba(156, 136, 255, 0.2);
+}
+
+/* منطقة المايك الدائري */
+.action-zone {
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.giant-record-btn {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    /* تدرج معدني من نفس الهوية البنفسجية */
+    background: radial-gradient(circle, #2f256d 0%, #17123a 100%);
+    border: 2px solid #9c88ff;
+    color: #9c88ff;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.4), 
+        0 0 20px rgba(156, 136, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.giant-record-btn p {
+    margin: 8px 0 0 0;
+    font-size: 0.85rem;
+}
+
+.mic-icon {
+    font-size: 2.2rem;
+}
+
+/* وضع التسجيل: ينبض بنفسجي فاقع مشع ومثير للانتباه بدون ما يخرج بره الهوية */
+.giant-record-btn.recording {
+    background: radial-gradient(circle, #e84118 0%, #c23616 100%);
+    border-color: #f5f4fa;
+    color: white;
+    animation: purplePulse 1.5s infinite;
+}
+
+@keyframes purplePulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(232, 65, 24, 0.5); }
+    50% { transform: scale(1.03); box-shadow: 0 0 30px rgba(232, 65, 24, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 20px rgba(232, 65, 24, 0.5); }
+}
+
+/* كارت الصوت المراجع */
+.audio-card {
+    background: #0b0817;
+    padding: 12px 15px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(156, 136, 255, 0.1);
+    color: #686487;
+}
+
+.mock-player {
+    color: #9c88ff;
+}
+
+.delete-btn {
+    background: rgba(232, 65, 24, 0.1);
+    color: #ff7675;
+    border: 1px solid rgba(232, 65, 24, 0.2);
+    padding: 6px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* صندوق النص: تباين مذهل ومريح للعين جداً */
+.input-wrapper {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper label {
+    font-size: 0.85rem;
+    color: #686487;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+textarea {
+    width: 100%;
+    height: 110px;
+    border-radius: 14px;
+    border: 1px solid rgba(156, 136, 255, 0.15);
+    background: #0b0817;
+    padding: 12px;
+    box-sizing: border-box;
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #f5f4fa; /* نص ناصع مريح جداً في القراءة */
+}
+
+textarea:focus {
+    border-color: #9c88ff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(156, 136, 255, 0.2);
+}
+
+/* صندوق الموقع الحالي */
+.location-box {
+    background: rgba(11, 8, 23, 0.6);
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #686487;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(156, 136, 255, 0.05);
+}
+
+/* ─── زرار الإرسال: ذروة التدرج البنفسجي المضيء ─── */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #1c1a27;
+    color: #4b485c;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+}
+
+/* حالة الجاهزية: بنفسجي نيون كريستالي ساحر وجذاب يخطف العين */
+.submit-btn.ready {
+    background: linear-gradient(135deg, #6c5ce7 0%, #9c88ff 50%, #82589f 100%);
+    background-size: 200% auto;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 12px 25px rgba(108, 92, 231, 0.4), 
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        0 0 15px rgba(156, 136, 255, 0.2);
+}
+
+.submit-btn.ready:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 16px 30px rgba(108, 92, 231, 0.5), 
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
